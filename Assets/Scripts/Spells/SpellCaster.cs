@@ -51,6 +51,11 @@ public class SpellCaster : MonoBehaviour {
 			if (target.GetComponent(_spellTypeName) != null)
 				Destroy(target.gameObject.GetComponent(_spellTypeName));
 
+
+			// kill the child projectile effect
+			Destroy(transform.GetChild(0).gameObject);
+
+			// start the hit effect
 			Instantiate(_spellHitPrefab,transform.position,Quaternion.identity);
 
 			Component spell = target.gameObject.AddComponent(Compiler.CompiledTypes[_spellTypeName]);

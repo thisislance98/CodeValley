@@ -18,6 +18,9 @@ public class CodeInput : MonoBehaviour {
 	
 	public void OnCompileTouch()
 	{
+		if (ThirdPersonController.MyPlayer == null)
+			return;
+
 		string code = _inputObj.label.text;
 
 		Compiler.Instance.CompileSpell(code,ThirdPersonController.MyPlayer.photonView.viewID);

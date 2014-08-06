@@ -34,7 +34,7 @@ public class SpellManager : MonoBehaviour {
 		GameObject spell = (GameObject)Instantiate(SpellPrefab,startPos,Quaternion.identity);
 		GameObject spellProjectileEffect = (GameObject)Instantiate(_currentProjectileSpell);
 		spellProjectileEffect.transform.parent = spell.transform;
-		spellProjectileEffect.transform.position = Vector3.zero;
+		spellProjectileEffect.transform.localPosition = Vector3.zero;
 		
 		
 		spell.GetComponent<SpellCaster>().Initialize(targetPos,target,classTypeName,_currentHitSpell);

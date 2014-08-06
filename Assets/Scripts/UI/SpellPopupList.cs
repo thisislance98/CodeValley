@@ -21,7 +21,7 @@ public class SpellPopupList : MonoBehaviour {
 
 		_popup = GetComponent<UIPopupList>();
 	
-		_spells = (TypeOfSpell == SpellType.Hit) ? SpellManager.Instance.SpellProjectilePrefabs : SpellManager.Instance.SpellHitPrefabs;
+		_spells = (TypeOfSpell == SpellType.Projectile) ? SpellManager.Instance.SpellProjectilePrefabs : SpellManager.Instance.SpellHitPrefabs;
 
 
 		for (int i=0; i < _spells.Count; i++)
