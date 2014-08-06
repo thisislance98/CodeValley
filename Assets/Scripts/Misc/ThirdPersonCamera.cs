@@ -69,6 +69,11 @@ public class ThirdPersonCamera : MonoBehaviour {
 		Cut(_target, centerOffset);
 	}
 
+	public void SetTarget(Transform targetTransform)
+	{
+		_target = targetTransform;
+	}
+
 	public void Activate()
 	{
 		
