@@ -10,8 +10,11 @@ public class SpellCaster : MonoBehaviour {
 //	Vector3 _direction;
 	string _spellTypeName;
 
-	public void Initialize(Vector3 targetPos, Transform target, string spellTypeName)
+	GameObject _spellHitPrefab;
+
+	public void Initialize(Vector3 targetPos, Transform target, string spellTypeName, GameObject spellHitPrefab)
 	{
+		_spellHitPrefab = spellHitPrefab;
 		UnityEngine.Random.seed = 1;
 		_spellTypeName = spellTypeName;
 //		_direction = (targetPos-transform.position).normalized;
@@ -47,6 +50,8 @@ public class SpellCaster : MonoBehaviour {
 	//		Debug.Log("adding type: " + currentType.Name + " to : " + collider.transform.name);
 			if (target.GetComponent(_spellTypeName) != null)
 				Destroy(target.gameObject.GetComponent(_spellTypeName));
+
+			Instantiate(_spellHitPrefab,transform.position,Quaternion.identity);
 
 			Component spell = target.gameObject.AddComponent(Compiler.CompiledTypes[_spellTypeName]);
 			target.gameObject.SendMessage("OnAttachedSpell",spell,SendMessageOptions.DontRequireReceiver);

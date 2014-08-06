@@ -76,7 +76,7 @@ public class AnimalController : MonoBehaviour {
 
 		if (velocity.magnitude > _controller.velocity.magnitude )
 		{
-			Debug.Log("changing directions");
+//			Debug.Log("changing directions");
 			ChangeToRandomDirection();
 		}
 
@@ -103,13 +103,13 @@ public class AnimalController : MonoBehaviour {
 		Vector3 dir = new Vector3(x,y,z);
 
 
-		Debug.Log("out of bounds new dir "  + dir);
+//		Debug.Log("out of bounds new dir "  + dir);
 		_targetOrientation = Quaternion.LookRotation((dir - transform.position).normalized,transform.up);
 	}
 
 	void ChangeToRandomDirection()
 	{
-		Debug.Log("changing to random direction");
+//		Debug.Log("changing to random direction");
 		_targetOrientation = transform.rotation * Quaternion.AngleAxis(Random.Range(90,270),transform.up);
 	}
 

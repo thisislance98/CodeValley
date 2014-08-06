@@ -66,7 +66,7 @@ public class Compiler : Photon.MonoBehaviour
 			if (casterView != null && casterView.isMine)
 			{
 				PhotonNetwork.RPC(photonView,"CompilePeer",PhotonTargets.OthersBuffered,code,_currentType.Name,casterViewId);
-				ThirdPersonController.MyPlayer.SetSpellTypeName(_currentType.Name);
+				ThirdPersonController.MyPlayer.SetSpellClassTypeName(_currentType.Name);
 			}
 
 //			test.GetType().GetMethod("TestMethod").Invoke(test, null);
