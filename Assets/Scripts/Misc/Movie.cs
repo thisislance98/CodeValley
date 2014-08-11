@@ -9,6 +9,8 @@ public class Movie : MonoBehaviour {
 	Vector3 _cameraStartRotation;
 	Vector3 _cameraStartPos;
 
+	bool _isPlaying;
+
 	void Start() {
 
 		renderer.material.mainTexture = OurMovie;
@@ -17,8 +19,9 @@ public class Movie : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Player" && other.GetComponent<PhotonView>().isMine)// && Camera.main.GetComponent<CameraTrackObj>().enabled == true)
+		if (other.tag == "Player" && other.GetComponent<PhotonView>().isMine && _isPlaying == false)// && Camera.main.GetComponent<CameraTrackObj>().enabled == true)
 		{
+			_isPlaying = true;
 			Debug.Log("starting");
 
 			MoveCameraToScreen();
@@ -28,7 +31,7 @@ public class Movie : MonoBehaviour {
 
 	void OnTriggerExit(Collider other)
 	{
-		if (other.tag == "Player" )// && LeanTween.isTweening(gameObject) == false && Camera.main.GetComponent<CameraTrackObj>().enabled == false)
+		if (other.tag == "Player" && _isPlaying == true)// && LeanTween.isTweening(gameObject) == false && Camera.main.GetComponent<CameraTrackObj>().enabled == false)
 		{
 			LeanTween.cancel(gameObject);
 			Debug.Log("stopping");
@@ -38,19 +41,23 @@ public class Movie : MonoBehaviour {
 
 	void MoveCameraToScreen()
 	{
+
 		LeanTween.cancel(gameObject);
 
 		_cameraStartRotation = Camera.main.transform.rotation.eulerAngles;
 		_cameraStartPos = Camera.main.transform.position;
 
-
+		Debug.Log("playing movie");
 		GameObject.FindWithTag("Player").GetComponent<ThirdPersonCamera>().Deactivate(); 
 //		Camera.main.GetComponent<CameraTrackObj>().enabled = false;
 //		Camera.main.GetComponent<SU_CameraFollow>().enabled = false;
 
 		LeanTween.move(Camera.main.gameObject,CameraCloseTransform.position,2).setEase(LeanTweenType.easeInOutCubic).setOnComplete ( ()=> {
-            OurMovie.Play();
-            audio.Play();                                                                                                                          
+			         
+
+			OurMovie.Play();
+			if (audio.isPlaying == false)
+         	   audio.Play();                                                                                                                          
 		});
 		LeanTween.rotate(Camera.main.gameObject,CameraCloseTransform.rotation.eulerAngles,2).setEase(LeanTweenType.easeInOutCubic);
 
@@ -68,6 +75,7 @@ public class Movie : MonoBehaviour {
 //			Camera.main.GetComponent<SU_CameraFollow>().enabled = true;
 			OurMovie.Pause();
 			audio.Pause();
+			_isPlaying = false;
 		});
 		
 	}

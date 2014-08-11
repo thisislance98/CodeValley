@@ -7,7 +7,6 @@ public class Sensor : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("sensor hit");
 		Observer.SendMessage("OnSensorHit");
 
 	}

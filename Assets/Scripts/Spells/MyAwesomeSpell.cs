@@ -1,31 +1,27 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using CodeValley;
 
 public class MyAwesomeSpell : Spell {
 
-//	Collider[] cols;
 
 	void Start()
 	{
-//		cols = Physics.OverlapSphere(transform.position,100);
-
+		if (gameObject.GetComponent<Rigidbody>() == false)
+			gameObject.AddComponent<Rigidbody>();
 	}
-	// Update is called once per frame
+
 	void Update () {
 
-		transform.Rotate(0,10,0);
-	
-//		foreach(Collider col in cols)
-//		{
-//			if (col.transform.name == "Terrain" || col.transform.tag == "Player")
-//				continue;
-//
-//			col.transform.position += (transform.position - col.transform.position) * Time.deltaTime;
-//		}
+	//	transform.Rotate(0,10,0);
+	//	rigidbody.AddForce(10,0,0);
 
-	
+
+		transform.localScale -= Vector3.up * Time.deltaTime * .5f;
 	}
+
+
+
 
 }

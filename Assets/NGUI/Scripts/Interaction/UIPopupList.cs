@@ -190,6 +190,19 @@ public class UIPopupList : UIWidgetContainer
 	[System.Obsolete("Use EventDelegate.Add(popup.onChange, YourCallback) instead, and UIPopupList.current.value to determine the state")]
 	public LegacyEvent onSelectionChange { get { return mLegacyEvent; } set { mLegacyEvent = value; } }
 
+
+	public void SetItems(List<string> itemList)
+	{
+		items = itemList;
+
+		for (int i=0; i < itemList.Count; i++)
+		{
+			mLabelList[i].text = items[i];
+
+		}
+
+	}
+
 	/// <summary>
 	/// Whether the popup list is currently open.
 	/// </summary>

@@ -40,6 +40,12 @@ public class DynamicWorld : MonoBehaviour {
 
 	public GameObject ReplaceWithDynamic(GameObject staticObj)
 	{
+		if (_AllObjs.ContainsKey(staticObj.name) == false)
+		{
+			Debug.Log ("dynamic obj: " + staticObj.name + " not found");
+			return null;
+		}
+
 		GameObject dynamicObj = _AllObjs[staticObj.name];
 		
 		if (dynamicObj == null)
