@@ -191,6 +191,12 @@ public class UIPopupList : UIWidgetContainer
 	public LegacyEvent onSelectionChange { get { return mLegacyEvent; } set { mLegacyEvent = value; } }
 
 
+	public Transform GetDropDown()
+	{
+		return mChild.transform;
+
+	}
+
 	public void SetItems(List<string> itemList)
 	{
 		items = itemList;

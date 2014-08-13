@@ -16,7 +16,7 @@ public class SpellCaster : MonoBehaviour {
 	public void Initialize(Vector3 targetPos, Transform target, string spellTypeName, GameObject spellHitPrefab)
 	{
 		_camera = ThirdPersonController.MyPlayer.gameObject.GetComponent<ThirdPersonCamera>();
-		_camera.distance *= 1.5f;
+	//	_camera.distance *= 1.5f;
 
 		_spellHitPrefab = spellHitPrefab;
 		UnityEngine.Random.seed = 1;
@@ -85,7 +85,7 @@ public class SpellCaster : MonoBehaviour {
 		yield return new WaitForSeconds(delay);
 
 		_camera.Activate();
-		_camera.distance *= .75f;
+	//	_camera.distance *= .75f;
 		_camera.SetTarget(ThirdPersonController.MyPlayer.transform);
 		Destroy(spell);
 		Destroy(gameObject);

@@ -174,7 +174,7 @@ public class ThirdPersonController : Photon.MonoBehaviour {
 				if (_highlightedObj != null)
 					_highlightedObj.renderer.material.color = _lastHighlightedColor;
 
-
+		
 				_lastHighlightedColor = hit.transform.renderer.material.color;
 				hit.transform.renderer.material.color = Color.green;
 				_highlightedObj = hit.transform;
@@ -329,7 +329,7 @@ public class ThirdPersonController : Photon.MonoBehaviour {
 		Vector3 startPos = transform.position + transform.forward*3 + Vector3.up*4;
 		GameObject spell = SpellManager.Instance.CastSpell(startPos,hitPoint,target.transform,_currentSpellClassTypeName);
 
-		GetComponent<ThirdPersonCamera>().SetTarget(spell.transform);
+	//	GetComponent<ThirdPersonCamera>().SetTarget(spell.transform);
 	}
 	
 	[RPC]

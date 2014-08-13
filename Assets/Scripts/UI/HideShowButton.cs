@@ -4,7 +4,7 @@ using System.Collections;
 public class HideShowButton : MonoBehaviour {
 
 	public UILabel Label;
-	public GameObject[] Objects;
+	public GameObject[] NonSiblingObjects;
 	bool _isShowing = true;
 
 
@@ -14,10 +14,20 @@ public class HideShowButton : MonoBehaviour {
 
 		Label.text = (_isShowing) ? "Hide" : "Show";
 
-		foreach(GameObject obj in Objects)
+
+
+		for (int i=0; i < transform.parent.childCount; i++)
+		{
+			GameObject obj = transform.parent.GetChild(i).gameObject;
+
+			if (obj != gameObject)
+				obj.SetActive(_isShowing);
+
+		}
+
+		foreach (GameObject obj in NonSiblingObjects)
 		{
 			obj.SetActive(_isShowing);
-
 		}
 
 	}

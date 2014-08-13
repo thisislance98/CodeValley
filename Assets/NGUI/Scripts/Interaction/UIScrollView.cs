@@ -672,6 +672,7 @@ public class UIScrollView : MonoBehaviour
 			mIgnoreCallbacks = false;
 		}
 	}
+	
 
 	/// <summary>
 	/// Move the scroll view by the specified local space amount.

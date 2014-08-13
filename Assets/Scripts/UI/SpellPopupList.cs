@@ -18,12 +18,15 @@ public class SpellPopupList : MonoBehaviour {
 
 	public SpellType TypeOfSpell;
 
+	public bool IsScrollable = false;
+	public float ScrollSpeed = 2;
+
 	List<GameObject> _spells;
 	List<string> _spellNames = new List<string>();
 
 	UIPopupList _popup;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 
 
 		_popup = GetComponent<UIPopupList>();
@@ -47,10 +50,14 @@ public class SpellPopupList : MonoBehaviour {
 		if (_popup.isOpen == false)
 			return;
 
-		if (Input.GetAxis("Mouse ScrollWheel") > 0 )
-			Shift(ShiftDirection.up);
-		else if (Input.GetAxis("Mouse ScrollWheel") < 0 )
-			Shift(ShiftDirection.down);
+		if (IsScrollable)
+		{
+			float scrollDelta = Input.GetAxis("Mouse ScrollWheel");
+			if (scrollDelta < 0 )
+				_popup.GetDropDown().position += Mathf.Abs(scrollDelta) * Vector3.up * ScrollSpeed ;
+			else if (scrollDelta > 0 )
+				_popup.GetDropDown().transform.position += Mathf.Abs(scrollDelta) * Vector3.down * ScrollSpeed;
+		}
 
 
 	}
@@ -61,13 +68,13 @@ public class SpellPopupList : MonoBehaviour {
 
 		List<string> items = _popup.items;
 
-		if (dir == ShiftDirection.up)
+		if (dir == ShiftDirection.down)
 		{
 			string start = items[0];
 			items.RemoveAt(0);
 			items.Add(start);
 		}
-		else if (dir == ShiftDirection.down)
+		else if (dir == ShiftDirection.up)
 		{
 			string last = items[items.Count-1];
 			items.RemoveAt(items.Count-1);
@@ -76,7 +83,7 @@ public class SpellPopupList : MonoBehaviour {
 
 		}
 
-		_popup.items = _popup.SetItems(items);
+		_popup.SetItems(items);
 
 
 	}
@@ -87,12 +94,21 @@ public class SpellPopupList : MonoBehaviour {
 			return;
 
 		string spellName = _popup.value;
+		SetSpell(spellName);
 
+	}
+
+	public void SetSpell(string spellName)
+	{
+		_popup.value = spellName;
+
+		Debug.Log("spell selected: " + spellName);
 		int index = _spellNames.FindIndex(x => x.Equals(spellName));
-
+		
 		if (TypeOfSpell == SpellType.Hit)
 			SpellManager.Instance.SetCurrentHitSpell(_spells[index]);
 		else
 			SpellManager.Instance.SetCurrentProjectileSpell(_spells[index]);
+
 	}
 }

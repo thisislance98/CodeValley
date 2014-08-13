@@ -5,11 +5,14 @@ using CodeValley;
 
 public class MyAwesomeSpell : Spell {
 
+	Transform player;
 
 	void Start()
 	{
-		if (gameObject.GetComponent<Rigidbody>() == false)
-			gameObject.AddComponent<Rigidbody>();
+//		if (gameObject.GetComponent<Rigidbody>() == false)
+//			gameObject.AddComponent<Rigidbody>();
+
+		player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 
 	void Update () {
@@ -17,8 +20,8 @@ public class MyAwesomeSpell : Spell {
 	//	transform.Rotate(0,10,0);
 	//	rigidbody.AddForce(10,0,0);
 
-
-		transform.localScale -= Vector3.up * Time.deltaTime * .5f;
+		transform.position = Vector3.Lerp(transform.position, player.position, Time.deltaTime*.4f);
+	//	transform.localScale -= Vector3.up * Time.deltaTime * .5f;
 	}
 
 

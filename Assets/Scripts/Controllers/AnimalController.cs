@@ -35,7 +35,7 @@ public class AnimalController : MonoBehaviour {
 			_currentState = value;
 			_currentSpeed = _stateSpeeds[(int)_currentState];
 
-			Debug.Log("setting state: " + _currentState.ToString());
+	//		Debug.Log("setting state: " + _currentState.ToString());
 
 			_animator.SetTrigger(_currentState.ToString());
 			

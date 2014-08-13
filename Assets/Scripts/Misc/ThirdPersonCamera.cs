@@ -175,6 +175,7 @@ public class ThirdPersonCamera : MonoBehaviour {
 		cameraTransform.position = targetCenter;
 		cameraTransform.position += currentRotation * Vector3.back * distance;
 
+
 		// Set the height of the camera
 		Vector3 pos = cameraTransform.position;
 		pos.y = currentHeight;

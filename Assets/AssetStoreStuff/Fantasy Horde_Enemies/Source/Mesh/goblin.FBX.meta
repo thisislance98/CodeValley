@@ -1,0 +1,773 @@
+fileFormatVersion: 2
+guid: 0ca85a670c3262443a828c408d92543f
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: bip_hordeHead
+    100002: bip_hordeHeadBone001
+    100004: bip_hordeHeadBone002
+    100006: bip_hordeLCalf
+    100008: bip_hordeLCollarbone
+    100010: bip_hordeLDigit11
+    100012: bip_hordeLDigit21
+    100014: bip_hordeLFoot
+    100016: bip_hordeLForearm
+    100018: bip_hordeLPalm
+    100020: bip_hordeLThigh
+    100022: bip_hordeLUpperarm
+    100024: bip_hordeNeck1
+    100026: bip_hordeNeck2
+    100028: bip_hordePelvis
+    100030: bip_hordeRCalf
+    100032: bip_hordeRCollarbone
+    100034: bip_hordeRDigit11
+    100036: bip_hordeRDigit21
+    100038: bip_hordeRFoot
+    100040: bip_hordeRForearm
+    100042: bip_hordeRibcage
+    100044: bip_hordeRPalm
+    100046: bip_hordeRThigh
+    100048: bip_hordeRUpperarm
+    100050: bip_hordeSpine1
+    100052: bip_hordeSpine2
+    100054: bon_gob_war_cloth00
+    100056: bon_gob_war_cloth01
+    100058: bon_gob_war_jaw
+    100060: Goblin
+    100062: //RootNode
+    100064: Goblin_helmet
+    100066: Goblin_shield
+    100068: Goblin_sword
+    400000: bip_hordeHead
+    400002: bip_hordeHeadBone001
+    400004: bip_hordeHeadBone002
+    400006: bip_hordeLCalf
+    400008: bip_hordeLCollarbone
+    400010: bip_hordeLDigit11
+    400012: bip_hordeLDigit21
+    400014: bip_hordeLFoot
+    400016: bip_hordeLForearm
+    400018: bip_hordeLPalm
+    400020: bip_hordeLThigh
+    400022: bip_hordeLUpperarm
+    400024: bip_hordeNeck1
+    400026: bip_hordeNeck2
+    400028: bip_hordePelvis
+    400030: bip_hordeRCalf
+    400032: bip_hordeRCollarbone
+    400034: bip_hordeRDigit11
+    400036: bip_hordeRDigit21
+    400038: bip_hordeRFoot
+    400040: bip_hordeRForearm
+    400042: bip_hordeRibcage
+    400044: bip_hordeRPalm
+    400046: bip_hordeRThigh
+    400048: bip_hordeRUpperarm
+    400050: bip_hordeSpine1
+    400052: bip_hordeSpine2
+    400054: bon_gob_war_cloth00
+    400056: bon_gob_war_cloth01
+    400058: bon_gob_war_jaw
+    400060: Goblin
+    400062: //RootNode
+    400064: Goblin_helmet
+    400066: Goblin_shield
+    400068: Goblin_sword
+    2300000: Goblin_helmet
+    2300002: Goblin_shield
+    2300004: Goblin_sword
+    3300000: Goblin_helmet
+    3300002: Goblin_shield
+    3300004: Goblin_sword
+    4300000: Goblin_shield
+    4300002: Goblin_sword
+    4300004: Goblin_helmet
+    4300006: Goblin
+    7400000: idle
+    7400002: idle_break
+    7400004: hit
+    7400006: death
+    7400008: attack1
+    7400010: sttack2
+    7400012: block
+    7400014: jump
+    7400016: death
+    7400018: walk
+    7400020: run
+    7400022: Take 00110
+    7400024: Take 00111
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Goblin
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: idle_break
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: block
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attack1
+      takeName: Take 001
+      firstFrame: 120
+      lastFrame: 145
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: sttack2
+      takeName: Take 001
+      firstFrame: 145
+      lastFrame: 175
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: hit
+      takeName: Take 001
+      firstFrame: 180
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: jump
+      takeName: Take 001
+      firstFrame: 250
+      lastFrame: 293
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: death
+      takeName: Take 001
+      firstFrame: 210
+      lastFrame: 235
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: walk
+      takeName: Take 001
+      firstFrame: 300
+      lastFrame: 330
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: run
+      takeName: Take 001
+      firstFrame: 350
+      lastFrame: 375
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: bip_hordePelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeLThigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeRThigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeLCalf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeRCalf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeLFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeRFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeSpine1
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeSpine2
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeHead
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeLCollarbone
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeRCollarbone
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeLUpperarm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeRUpperarm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeLForearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeRForearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeLPalm
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeRPalm
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bon_gob_war_jaw
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeLDigit11
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeLDigit21
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeRDigit11
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bip_hordeRDigit21
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: goblin(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: bip_hordePelvis
+      position: {x: 2.67917635e-08, y: .500719428, z: -.0366512462}
+      rotation: {x: .49912703, y: -.500871599, z: -.499126911, w: .50087148}
+      scale: {x: .999999702, y: .999999583, z: .999999404}
+      transformModified: 1
+    - name: bip_hordeLThigh
+      position: {x: -.0104011856, y: .0283595528, z: .0790524557}
+      rotation: {x: -.10746114, y: .990541339, z: -.0256868489, w: .0813645571}
+      scale: {x: .999999762, y: 1.00000024, z: 1.00000012}
+      transformModified: 1
+    - name: bip_hordeLCalf
+      position: {x: -.235820532, y: 1.20717573e-07, z: -1.81771505e-08}
+      rotation: {x: -.00122960331, y: -.00779779255, z: .329594702, w: .944089592}
+      scale: {x: 1.00000048, y: 1.00000036, z: 1.0000006}
+      transformModified: 1
+    - name: bip_hordeLFoot
+      position: {x: -.243029669, y: 1.47412846e-08, z: 2.24617125e-09}
+      rotation: {x: -.0513865016, y: .0775246397, z: -.757518828, w: .646153629}
+      scale: {x: 1, y: .999999762, z: .999999702}
+      transformModified: 1
+    - name: bip_hordeRThigh
+      position: {x: -.0104014287, y: .0283595491, z: -.0790524483}
+      rotation: {x: -.107461289, y: .990541279, z: .0256867763, w: -.0813646242}
+      scale: {x: .999999881, y: 1.00000036, z: 1.00000036}
+      transformModified: 1
+    - name: bip_hordeRCalf
+      position: {x: -.235820755, y: 4.00600761e-08, z: -7.95605803e-09}
+      rotation: {x: .00137971574, y: .00789941382, z: .329570621, w: .944096863}
+      scale: {x: .99999994, y: 1.00000036, z: .999999583}
+      transformModified: 1
+    - name: bip_hordeRFoot
+      position: {x: -.243029773, y: 1.66007261e-08, z: -3.03564782e-08}
+      rotation: {x: .0514370166, y: -.0775777474, z: -.757459998, w: .64621222}
+      scale: {x: .999999464, y: .999999821, z: .999999821}
+      transformModified: 1
+    - name: bip_hordeSpine1
+      position: {x: -.0276105702, y: -.0021124878, z: -8.79120243e-09}
+      rotation: {x: -4.43602879e-08, y: -2.4407333e-08, z: -.0803924501, w: .996763289}
+      scale: {x: .999999762, y: .999999762, z: 1}
+      transformModified: 1
+    - name: bip_hordeSpine2
+      position: {x: -.229575589, y: -8.2541689e-08, z: 9.86144943e-09}
+      rotation: {x: 1.83910185e-08, y: -1.8924593e-09, z: .157768488, w: .98747611}
+      scale: {x: 1.00000048, y: 1.00000083, z: 1.0000006}
+      transformModified: 1
+    - name: bip_hordeRibcage
+      position: {x: -.195567742, y: -2.2456188e-08, z: -3.57023988e-09}
+      rotation: {x: 2.99915044e-08, y: -2.50571226e-08, z: .0796112716, w: -.996826053}
+      scale: {x: .999999523, y: .999999464, z: 1}
+      transformModified: 1
+    - name: bip_hordeLCollarbone
+      position: {x: .0104867807, y: .0219591074, z: .03777913}
+      rotation: {x: -.0258282684, y: -.766030788, z: -.1550605, w: -.623286426}
+      scale: {x: 1.00000012, y: .99999994, z: 1.00000024}
+      transformModified: 1
+    - name: bip_hordeLUpperarm
+      position: {x: -.0910331607, y: 5.08588833e-08, z: -3.941893e-07}
+      rotation: {x: .207454994, y: -.0902795568, z: -.111007459, w: .967723787}
+      scale: {x: .999999881, y: 1.00000048, z: 1.00000024}
+      transformModified: 1
+    - name: bip_hordeLForearm
+      position: {x: -.287063509, y: 2.53468873e-08, z: -6.2109315e-08}
+      rotation: {x: -.110843927, y: -.0290396176, z: -.0323527604, w: .992886543}
+      scale: {x: .999999642, y: .999999642, z: .999999881}
+      transformModified: 1
+    - name: bip_hordeLPalm
+      position: {x: -.270054817, y: 1.16818413e-07, z: 2.40629333e-07}
+      rotation: {x: -.688961685, y: .0748843774, z: .0336845405, w: .720131636}
+      scale: {x: .999999762, y: .999999523, z: .999999702}
+      transformModified: 1
+    - name: bip_hordeLDigit11
+      position: {x: -.019618975, y: -.0103434352, z: .0276209526}
+      rotation: {x: .459376633, y: .383387923, z: -.0773120299, w: .79750216}
+      scale: {x: .99999994, y: 1.00000024, z: .999999225}
+      transformModified: 1
+    - name: bip_hordeLDigit21
+      position: {x: -.0832386464, y: -.00323251309, z: -.00197111745}
+      rotation: {x: .0528474413, y: .0420216471, z: .177041262, w: .981884837}
+      scale: {x: 1, y: .999999225, z: 1.00000012}
+      transformModified: 1
+    - name: Goblin_shield
+      position: {x: .0278993789, y: .0412760898, z: -.0100280764}
+      rotation: {x: -.492629588, y: .292071253, z: -.581147313, w: .578168035}
+      scale: {x: .999999583, y: 1.00000012, z: .999999821}
+      transformModified: 1
+    - name: bip_hordeNeck1
+      position: {x: .00106086733, y: .0135850739, z: -1.43051144e-08}
+      rotation: {x: .0273240581, y: .000159995965, z: -.0042008725, w: .999617815}
+      scale: {x: .999999881, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: bip_hordeNeck2
+      position: {x: -.0468418114, y: 4.76837148e-09, z: 0}
+      rotation: {x: .119835027, y: 5.86016142e-08, z: 1.91928127e-08, w: .992793858}
+      scale: {x: 1.00000012, y: .999999762, z: 1}
+      transformModified: 1
+    - name: bip_hordeHead
+      position: {x: -.0821485817, y: -.00275044329, z: .000761398522}
+      rotation: {x: -.146916375, y: .000344494008, z: .00418975856, w: .989139974}
+      scale: {x: 1.00000024, y: 1.00000024, z: 1.00000012}
+      transformModified: 1
+    - name: bip_hordeHeadBone001
+      position: {x: 2.7927563e-10, y: 3.34068737e-08, z: -1.8363121e-09}
+      rotation: {x: 1.49011647e-08, y: 1.49011559e-08, z: -4.47034765e-08, w: 1}
+      scale: {x: .99999994, y: 1, z: 1}
+      transformModified: 1
+    - name: bip_hordeHeadBone002
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -9.31322464e-10, y: -3.72529074e-09, z: 7.4505806e-09, w: 1}
+      scale: {x: .99999994, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: bon_gob_war_jaw
+      position: {x: -.00173123437, y: .0388115868, z: 6.11262649e-08}
+      rotation: {x: .469098061, y: -.883146048, z: 2.70908174e-07, w: -2.54743977e-08}
+      scale: {x: .99999994, y: .999999702, z: 1.00000012}
+      transformModified: 1
+    - name: Goblin_helmet
+      position: {x: 1.07609487, y: .0220835041, z: 4.7683713e-08}
+      rotation: {x: .707106829, y: 3.02930516e-08, z: -.707106829, w: 3.02930516e-08}
+      scale: {x: .99999994, y: .99999994, z: .99999994}
+      transformModified: 1
+    - name: bip_hordeRCollarbone
+      position: {x: .0104868496, y: .0219590776, z: -.0377791375}
+      rotation: {x: -.0258276984, y: -.766030431, z: .155060008, w: .623287022}
+      scale: {x: .999999821, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: bip_hordeRUpperarm
+      position: {x: -.091032885, y: -5.19769188e-08, z: 2.86180438e-07}
+      rotation: {x: -.207455039, y: .0902792215, z: -.111006722, w: .967723906}
+      scale: {x: 1.00000048, y: 1.00000024, z: .999999881}
+      transformModified: 1
+    - name: bip_hordeRForearm
+      position: {x: -.287063748, y: 1.73053905e-07, z: -2.50790691e-07}
+      rotation: {x: .110844396, y: .0290374365, z: -.0323529691, w: .992886603}
+      scale: {x: 1, y: .999999881, z: 1.00000012}
+      transformModified: 1
+    - name: bip_hordeRPalm
+      position: {x: -.270054817, y: 5.03435125e-08, z: 7.46643764e-07}
+      rotation: {x: .688961625, y: -.0748844966, z: .0336846076, w: .720131755}
+      scale: {x: .999999583, y: .999999642, z: .999999583}
+      transformModified: 1
+    - name: bip_hordeRDigit11
+      position: {x: -.0196189005, y: -.0103434473, z: -.0276210867}
+      rotation: {x: -.459376663, y: -.383387923, z: -.0773121044, w: .79750216}
+      scale: {x: 1.00000024, y: 1.00000036, z: 1.00000024}
+      transformModified: 1
+    - name: bip_hordeRDigit21
+      position: {x: -.0832385868, y: -.00323259947, z: .00197096448}
+      rotation: {x: -.0528475493, y: -.0420217998, z: .177041218, w: .981884837}
+      scale: {x: 1.00000012, y: .999999821, z: 1.00000012}
+      transformModified: 1
+    - name: Goblin_sword
+      position: {x: -.0637180284, y: -.0339348204, z: -.0064860913}
+      rotation: {x: .482276589, y: .607188404, z: .511558354, w: .370188594}
+      scale: {x: 1.00000024, y: 1.00000036, z: 1.00000036}
+      transformModified: 1
+    - name: bon_gob_war_cloth00
+      position: {x: -.0757868588, y: .093040213, z: -6.31040251e-08}
+      rotation: {x: -.0283027962, y: .675003469, z: .736626267, w: -.0308403783}
+      scale: {x: .999999583, y: .999999702, z: .999999821}
+      transformModified: 1
+    - name: bon_gob_war_cloth01
+      position: {x: -.192789346, y: 3.1596187e-08, z: -1.75662187e-08}
+      rotation: {x: -6.64459913e-06, y: -.0141470339, z: 3.35948098e-05, w: .999899924}
+      scale: {x: 1, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: Goblin
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  additionalBone: 1
+  userData: 

@@ -68,6 +68,12 @@ public class UIScrollBar : UISlider
 		}
 	}
 
+	void OnScroll(float delta)
+	{
+		Debug.Log("scrolling: " + delta);
+		
+	}
+
 	/// <summary>
 	/// Upgrade from legacy functionality.
 	/// </summary>
