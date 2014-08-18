@@ -7,7 +7,6 @@ public class ThirdPersonController : Photon.MonoBehaviour {
 	
 	public Transform SpellStartTransform;
 
-
 	public float JumpForce = 1000;
 	public float walkMaxAnimationSpeed  = 0.75f;
 	public float runMaxAnimationSpeed  = 1.0f;
@@ -174,15 +173,19 @@ public class ThirdPersonController : Photon.MonoBehaviour {
 				if (_highlightedObj != null)
 					_highlightedObj.renderer.material.color = _lastHighlightedColor;
 
-		
-				_lastHighlightedColor = hit.transform.renderer.material.color;
-				hit.transform.renderer.material.color = Color.green;
+				if (hit.transform.renderer.material.HasProperty("_Color"))
+				{
+					_lastHighlightedColor = hit.transform.renderer.material.color;
+
+					hit.transform.renderer.material.color = Color.green;
+				}
+
 				_highlightedObj = hit.transform;
 			}
 		}
 		else
 		{
-			if (_highlightedObj != null)
+			if (_highlightedObj != null && _highlightedObj.renderer.material.HasProperty("_Color"))
 				_highlightedObj.renderer.material.color = _lastHighlightedColor;
 
 			_highlightedObj = null;

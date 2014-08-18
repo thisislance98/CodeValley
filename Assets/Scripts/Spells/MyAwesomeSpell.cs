@@ -1,30 +1,26 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using CodeValley;
 
-public class MyAwesomeSpell : Spell {
 
-	Transform player;
+public class MyAwesomeSpell : MonoBehaviour {
+
+	static Camera lastCamera = null;
 
 	void Start()
 	{
-//		if (gameObject.GetComponent<Rigidbody>() == false)
-//			gameObject.AddComponent<Rigidbody>();
+		if (lastCamera != null)
+			Destroy(lastCamera);
 
-		player = GameObject.FindGameObjectWithTag("Player").transform;
+		Camera camera = gameObject.AddComponent<Camera>();
+
+		camera.fieldOfView = 120;
+
+		camera.rect = new Rect(.5f,.5f,.5f,.5f);
+
+		lastCamera = camera;
 	}
 
-	void Update () {
-
-	//	transform.Rotate(0,10,0);
-	//	rigidbody.AddForce(10,0,0);
-
-		transform.position = Vector3.Lerp(transform.position, player.position, Time.deltaTime*.4f);
-	//	transform.localScale -= Vector3.up * Time.deltaTime * .5f;
-	}
-
-
-
-
+	
+	
 }

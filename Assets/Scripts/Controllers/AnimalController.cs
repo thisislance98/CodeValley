@@ -6,7 +6,8 @@ public enum AnimalState
 {
 	Idle=0,
 	Walk=1,
-	Run=2
+	Run=2,
+	Attacking=3,
 }
 
 public class AnimalController : MonoBehaviour {

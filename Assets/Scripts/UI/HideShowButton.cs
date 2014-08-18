@@ -3,10 +3,16 @@ using System.Collections;
 
 public class HideShowButton : MonoBehaviour {
 
+	public bool HideOnStart = true;
 	public UILabel Label;
 	public GameObject[] NonSiblingObjects;
 	bool _isShowing = true;
 
+	void Start()
+	{
+		if (HideOnStart)
+			ToggleShow();
+	}
 
 	public void ToggleShow()
 	{
