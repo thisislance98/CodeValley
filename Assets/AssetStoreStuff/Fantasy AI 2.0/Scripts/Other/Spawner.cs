@@ -72,7 +72,7 @@ public class Spawner : MonoBehaviour {
 		int listsize=dudestospawn.Count;
 		for (int i = 0; i < listsize; i++){
 			
-			dudestospawn[i].transform.gameObject.SetActiveRecursively(false);	
+				dudestospawn[i].transform.gameObject.SetActive(false);	
 			
 				
 				diactivate=false;

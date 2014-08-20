@@ -118,7 +118,7 @@ public class NetworkConnect : Photon.MonoBehaviour
 	//	PhotonNetwork.Instantiate("FemElementalist",new Vector3(2.35582f,0.9143231f,-6.209982f), Quaternion.identity,0);
 
 		Debug.Log("instantiating: " + WizardNames[1]);
-	    GameObject player = (GameObject)PhotonNetwork.Instantiate(WizardNames[PhotonNetwork.playerList.Length-1],new Vector3(2.35582f,1.9143231f,-6.209982f), Quaternion.identity,0);
+	    GameObject player = (GameObject)PhotonNetwork.Instantiate(WizardNames[PhotonNetwork.playerList.Length-1],Vector3.zero, Quaternion.identity,0);
 	//	PhotonNetwork.Instantiate(WizardNames[1],new Vector3(2.35582f,1.9143231f,-6.209982f), Quaternion.identity,0);
 		GameObject playerPosTransform = GameObject.Find(WizardNames[PhotonNetwork.playerList.Length-1] + "Position");
 

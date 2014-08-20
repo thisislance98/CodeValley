@@ -3,13 +3,13 @@ using System.Collections;
 using System;
 
 
-public class SpellCaster : MonoBehaviour {
+public class SpellMotor : MonoBehaviour {
 
 	public float Speed = 10;
 //	bool _targetSet = false;
 //	Vector3 _direction;
 	string _spellTypeName;
-	ThirdPersonCamera _camera;
+//	ThirdPersonCamera _camera;
 	Transform _target;
 	Vector3 _hitOffset;
 	Vector3 _startPos;
@@ -21,7 +21,7 @@ public class SpellCaster : MonoBehaviour {
 	public void Initialize(Vector3 targetPos, Transform target, string spellTypeName, GameObject spellHitPrefab)
 	{
 
-		_camera = ThirdPersonController.MyPlayer.gameObject.GetComponent<ThirdPersonCamera>();
+//		_camera = ThirdPersonController.MyPlayer.gameObject.GetComponent<ThirdPersonCamera>();
 		_target = target;
 		_hitOffset = targetPos - _target.position;
 		_startPos = transform.position;
@@ -41,8 +41,7 @@ public class SpellCaster : MonoBehaviour {
 
 	}
 
-
-
+	
 	void Update()
 	{
 		if (_target == null)
@@ -57,12 +56,12 @@ public class SpellCaster : MonoBehaviour {
 
 		if (percent >= 1)
 		{
-			OnHitTarget(_target);
+			OnHitTarget(_target,targetPos);
 			_target = null;
 		}
 	}
 
-	void OnHitTarget(Transform target)
+	void OnHitTarget(Transform target, Vector3 targetPos)
 	{
 //		_camera.Deactivate();
 
@@ -85,6 +84,8 @@ public class SpellCaster : MonoBehaviour {
 
 			Component spell = target.gameObject.AddComponent(Compiler.CompiledTypes[_spellTypeName]);
 			target.gameObject.SendMessage("OnAttachedSpell",spell,SendMessageOptions.DontRequireReceiver);
+			target.gameObject.SendMessage("OnSpellHitPosition",targetPos,SendMessageOptions.DontRequireReceiver);
+
 			StartCoroutine(KillSpellAfterDelay(3.0f,spell));
 
 //			if (target.rigidbody == null)

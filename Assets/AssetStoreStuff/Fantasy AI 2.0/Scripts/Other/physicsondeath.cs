@@ -17,7 +17,7 @@ public class physicsondeath : MonoBehaviour {
 		if(otherobject){
 		health hp2=(health)otherobject.GetComponent("health");
 		if(hp.dead&hp2.dead){
-				if(objecttodisable) objecttodisable.transform.gameObject.SetActiveRecursively(false);
+				if(objecttodisable) objecttodisable.transform.gameObject.SetActive(false);
 		}
 		}
 		if(hp.dead){

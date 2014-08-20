@@ -5,20 +5,11 @@ using System.Collections.Generic;
 
 public class MyAwesomeSpell : MonoBehaviour {
 
-	static Camera lastCamera = null;
-
-	void Start()
+	
+	void OnSpellHitPosition(Vector3 pos)
 	{
-		if (lastCamera != null)
-			Destroy(lastCamera);
+		Instantiate(Resources.Load("Kitty",typeof(GameObject)),pos,Quaternion.identity);
 
-		Camera camera = gameObject.AddComponent<Camera>();
-
-		camera.fieldOfView = 120;
-
-		camera.rect = new Rect(.5f,.5f,.5f,.5f);
-
-		lastCamera = camera;
 	}
 
 	

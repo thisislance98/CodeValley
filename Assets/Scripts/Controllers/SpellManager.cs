@@ -28,15 +28,24 @@ public class SpellManager : MonoBehaviour {
 
 	}
 
-	public GameObject CastSpell(Vector3 startPos, Vector3 targetPos, Transform target, string classTypeName)
+	public GameObject CastSpell(Vector3 startPos, Vector3 targetPos, string targetName, string classTypeName)
 	{
+		GameObject target = GameObject.Find(targetName);
+		
+		if (target.isStatic)
+			target = DynamicWorld.Instance.ReplaceWithDynamic(target);
+		
+		if (target == null)
+			return null;
+
 		GameObject spell = (GameObject)Instantiate(SpellPrefab,startPos,Quaternion.identity);
 		GameObject spellProjectileEffect = (GameObject)Instantiate(_currentProjectileSpell);
 		spellProjectileEffect.transform.parent = spell.transform;
 		spellProjectileEffect.transform.localPosition = Vector3.zero;
 		spell.transform.forward = (targetPos - startPos).normalized;
 		
-		spell.GetComponent<SpellCaster>().Initialize(targetPos,target,classTypeName,_currentHitSpell);
+		spell.GetComponent<SpellMotor>().Initialize(targetPos,target.transform,classTypeName,_currentHitSpell);
+
 		return spell;
 	}
 

@@ -66,7 +66,7 @@ public class Navigationalmesh : MonoBehaviour {
 			}
 			}
 		
-	gameObject.SetActiveRecursively(true);
+	gameObject.SetActive(true);
 	//renderer.enabled=false;
 	AddAllways();
 	}
@@ -189,7 +189,7 @@ public class Navigationalmesh : MonoBehaviour {
 			grids.Add(gridclone.transform);
 			gridposcount=gridposcount+1;	
 			gridclone.transform.localScale=gridposition.transform.lossyScale;
-			gridclone.gameObject.SetActiveRecursively(true);
+			gridclone.gameObject.SetActive(true);
 			gridclone.transform.parent=transform;
 		
 		}
@@ -206,7 +206,7 @@ public class Navigationalmesh : MonoBehaviour {
 		int listsize=grids.Count;
 			for (int i = 0; i < listsize; i++){
 		
-			grids[i].gameObject.SetActiveRecursively(true);
+				grids[i].gameObject.SetActive(true);
 				
 				
 				waypoints.TrimExcess();

@@ -32,7 +32,7 @@ public class Key : MonoBehaviour {
 			if(door){
 				door.locked=false;
 			}
-			gameObject.active=false;
+			gameObject.SetActive(false);
 		}
 		
 		//get player distance

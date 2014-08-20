@@ -118,7 +118,7 @@ public class Waypoint : MonoBehaviour {
 		//HIDE WAYPOINT 
 		if(hidewaypoint){
 		renderer.enabled=false;
-		if(waypointrepresentation) waypointrepresentation.transform.gameObject.SetActiveRecursively(false);
+			if(waypointrepresentation) waypointrepresentation.transform.gameObject.SetActive(false);
 		}
 		
 		if(baked){}

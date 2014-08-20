@@ -216,8 +216,8 @@ public class shop : MonoBehaviour {
 				if(sword.gold>=500){
 				if(kingsword&crapsword){
 					
-				kingsword.gameObject.SetActiveRecursively(true);
-				crapsword.gameObject.SetActiveRecursively(false);
+						kingsword.gameObject.SetActive(true);
+						crapsword.gameObject.SetActive(false);
 					sword.gold=sword.gold-500;
 					freefly dam=(freefly)playerbod.GetComponent("freefly");
 					dam.damage=300;

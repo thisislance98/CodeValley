@@ -205,13 +205,34 @@ public class ThirdPersonController : Photon.MonoBehaviour {
 
 			yield return new WaitForSeconds(.3f);
 		
-			PhotonNetwork.RPC(photonView,"CastSpellRPC",PhotonTargets.All,hit.point,hit.transform.name);
+
+			bool canHitTerrain = TerrainCheckbox.Instance.gameObject.GetComponent<UIToggle>().value;
+
+		
+			PhotonNetwork.RPC(photonView,"CastSpellRPC",PhotonTargets.All,hit.point,canHitTerrain,hit.transform.name);
 
 			yield return new WaitForSeconds(.5f);
 
 
 		}
 		_isCastingSpell = false;
+	}
+
+	[RPC]
+	void CastSpellRPC(Vector3 hitPoint, bool canHitTerrain,string objName)
+	{
+		if (objName == "Terrain" && canHitTerrain == false)
+			return;
+		
+		
+		_moveDirection = (hitPoint - rigidbody.position).normalized;
+		_moveDirection.y = 0;
+		rigidbody.rotation = Quaternion.LookRotation(_moveDirection,Vector3.up);
+
+
+		SpellManager.Instance.CastSpell(SpellStartTransform.position,hitPoint,objName,_currentSpellClassTypeName);
+		
+		//	GetComponent<ThirdPersonCamera>().SetTarget(spell.transform);
 	}
 
 	void UpdateSmoothedMovementDirection ()
@@ -310,30 +331,7 @@ public class ThirdPersonController : Photon.MonoBehaviour {
 	}
 
 
-	[RPC]
-	void CastSpellRPC(Vector3 hitPoint, string objName)
-	{
-		if (objName == "Terrain")
-			return;
 
-
-		_moveDirection = (hitPoint - rigidbody.position).normalized;
-		_moveDirection.y = 0;
-		rigidbody.rotation = Quaternion.LookRotation(_moveDirection,Vector3.up);
-
-		GameObject target = GameObject.Find(objName);
-
-		if (target.isStatic)
-			target = DynamicWorld.Instance.ReplaceWithDynamic(target);
-
-		if (target == null)
-			return;
-
-		Vector3 startPos = transform.position + transform.forward*3 + Vector3.up*4;
-		GameObject spell = SpellManager.Instance.CastSpell(startPos,hitPoint,target.transform,_currentSpellClassTypeName);
-
-	//	GetComponent<ThirdPersonCamera>().SetTarget(spell.transform);
-	}
 	
 	[RPC]
 	void PlayCastSpellAnimation(Vector3 target)
