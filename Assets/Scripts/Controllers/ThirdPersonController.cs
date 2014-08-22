@@ -6,6 +6,7 @@ public class ThirdPersonController : Photon.MonoBehaviour {
 
 	
 	public Transform SpellStartTransform;
+	public bool StickToGround = true;
 
 	public float JumpForce = 1000;
 	public float walkMaxAnimationSpeed  = 0.75f;
@@ -256,7 +257,10 @@ public class ThirdPersonController : Photon.MonoBehaviour {
 
 		Vector3 targetDirection = v * forward + h * right;
 		
-		
+
+		if (StickToGround == true && targetDirection == Vector3.zero)
+			rigidbody.velocity = new Vector3(0,rigidbody.velocity.y,0);
+
 		// We store speed and direction seperately,
 		// so that when the character stands still we still have a valid forward direction
 		// moveDirection is always normalized, and we only update it if there is user input.

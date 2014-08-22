@@ -4,14 +4,21 @@ using System.Collections.Generic;
 
 
 public class MyAwesomeSpell : MonoBehaviour {
-
+	
 	
 	void OnSpellHitPosition(Vector3 pos)
 	{
-		Instantiate(Resources.Load("Kitty",typeof(GameObject)),pos,Quaternion.identity);
+		
+		GameObject prefab = (GameObject)Resources.Load("Worm",typeof(GameObject));
+		
+		GameObject player = GameObject.FindWithTag("Player");
+
+		Vector3 forward = player.transform.position - pos;
+		Quaternion orientation = Quaternion.LookRotation(forward,Vector3.up);
+
+		Instantiate(prefab,pos,orientation);
 
 	}
 
-	
 	
 }

@@ -10,7 +10,11 @@ public class SpellPopulator : MonoBehaviour {
 	static void PopulateSpellsFromDirectories()	
 	{
 		SpellManager manager = GameObject.Find("SpellManager").GetComponent<SpellManager>();
-		
+
+
+		manager.SpellHitPrefabs.Clear();
+		manager.SpellProjectilePrefabs.Clear();
+
 		PopulateList(ref manager.SpellHitPrefabs,manager.HitSpellsDirectory);
 		PopulateList(ref manager.SpellProjectilePrefabs,manager.ProjectileSpellsDirectory);
 		
@@ -18,8 +22,7 @@ public class SpellPopulator : MonoBehaviour {
 	
 	static void PopulateList(ref List<GameObject> list, string directoryPath)
 	{
-		list.Clear();
-		
+
 		string[] filePaths = Directory.GetFiles(directoryPath);
 		Debug.Log("found objs: " + filePaths.Length);
 		
@@ -33,6 +36,13 @@ public class SpellPopulator : MonoBehaviour {
 				
 				list.Add(obj);
 			}
+		}
+
+		string[] directories = Directory.GetDirectories(directoryPath);
+
+		foreach (string directory in directories)
+		{
+			PopulateList(ref list, directory);
 		}
 		
 	}
