@@ -14,11 +14,8 @@ public class NetworkConnect : Photon.MonoBehaviour
      */
 
 	public UILabel StatusLabel;
-	public GameObject WizardPrefab;
 
-	public bool JumpToLevel;
-	public GameObject JumpToLevelObj;
-
+	public GameObject USpeakPrefab;
 	public string[] WizardNames;
 
     void Start()
@@ -33,49 +30,6 @@ public class NetworkConnect : Photon.MonoBehaviour
    		    PhotonNetwork.ConnectUsingSettings("1.0");
     }
 
-
-//    void OnGUI()
-//    {
-//        //Check connection state..
-//        if (PhotonNetwork.connectionState == ConnectionState.Disconnected)
-//        {
-//            //We are currently disconnected
-//            GUILayout.Label("Connection status: Disconnected");
-//
-//            GUILayout.BeginVertical();
-//            if (GUILayout.Button("Connect"))
-//            {
-//                //Connect using the PUN wizard settings (Self-hosted server or Photon cloud)
-//                PhotonNetwork.ConnectUsingSettings("1.0");
-//            }
-//            GUILayout.EndVertical();
-//        }
-//        else
-//        {
-//            //We're connected!
-//            if (PhotonNetwork.connectionState == ConnectionState.Connected)
-//            {
-//                GUILayout.Label("Connection status: Connected");
-//                if (PhotonNetwork.room != null)
-//                {
-//                    GUILayout.Label("Room: " + PhotonNetwork.room.name);
-//                    GUILayout.Label("Players: " + PhotonNetwork.room.playerCount + "/" + PhotonNetwork.room.maxPlayers);
-//
-//                }
-//                else
-//                {
-//                    GUILayout.Label("Not inside any room");
-//                }
-//
-//                GUILayout.Label("Ping to server: " + PhotonNetwork.GetPing());
-//            }
-//            else
-//            {
-//                //Connecting...
-//                GUILayout.Label("Connection status: " + PhotonNetwork.connectionState);
-//            }
-//        }
-//    }
 
     private bool receivedRoomList = false;
 
@@ -118,8 +72,10 @@ public class NetworkConnect : Photon.MonoBehaviour
 	//	PhotonNetwork.Instantiate("FemElementalist",new Vector3(2.35582f,0.9143231f,-6.209982f), Quaternion.identity,0);
 
 		Debug.Log("instantiating: " + WizardNames[1]);
-	    GameObject player = (GameObject)PhotonNetwork.Instantiate(WizardNames[PhotonNetwork.playerList.Length-1],Vector3.zero, Quaternion.identity,0);
-	//	PhotonNetwork.Instantiate(WizardNames[1],new Vector3(2.35582f,1.9143231f,-6.209982f), Quaternion.identity,0);
+	    GameObject player = (GameObject)PhotonNetwork.Instantiate("Prefabs/" + WizardNames[PhotonNetwork.playerList.Length-1],Vector3.zero, Quaternion.identity,0);
+		PhotonNetwork.Instantiate("Prefabs/" + USpeakPrefab.name,Vector3.zero, Quaternion.identity,0);
+
+		//	PhotonNetwork.Instantiate(WizardNames[1],new Vector3(2.35582f,1.9143231f,-6.209982f), Quaternion.identity,0);
 		GameObject playerPosTransform = GameObject.Find(WizardNames[PhotonNetwork.playerList.Length-1] + "Position");
 
 		if (playerPosTransform != null)
@@ -129,20 +85,8 @@ public class NetworkConnect : Photon.MonoBehaviour
 			player.transform.rotation = playerPosTransform.transform.rotation;
 		}
 
-		if (JumpToLevel)
-		{
-			StartCoroutine(JumpToLevelRoutine(player));
-		}
 	}
-
-	IEnumerator JumpToLevelRoutine(GameObject player)
-	{
-		yield return new WaitForSeconds(.3f);
-		JumpToLevelObj.SetActive(true);
-		player.transform.position = new Vector3(JumpToLevelObj.transform.position.x,player.transform.position.y,JumpToLevelObj.transform.position.z);
-
-	}
-
+	
     void OnConnectedToPhoton()
     {
         StartCoroutine(JoinOrCreateRoom());

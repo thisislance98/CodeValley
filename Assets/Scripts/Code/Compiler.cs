@@ -33,7 +33,7 @@ public class Compiler : Photon.MonoBehaviour
 		code = code.Replace(className,className + castViewId);
 		string typeName = CompileSpell (code,castViewId);
 
-		PhotonNetwork.networkingPeer.GetPhotonView(castViewId).gameObject.SendMessage("SetSpellTypeName",typeName);
+		PhotonNetwork.networkingPeer.GetPhotonView(castViewId).gameObject.SendMessage("SetSpellClassTypeName",typeName);
 
 	}
 
@@ -95,20 +95,28 @@ public class Compiler : Photon.MonoBehaviour
 		CompilerParameters cp = new CompilerParameters();
 
 
-	
 		// Add an assembly reference.
 
-		cp.ReferencedAssemblies.Add( "System.dll" );
-		cp.ReferencedAssemblies.Add( "/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll" );
+
 		//	cp.ReferencedAssemblies.Add( "UnityEngine.dll" );
 
 
 		Debug.Log("system location: " +  Assembly.Load("System").Location);
 
 		if (Application.isEditor)
+		{
+			cp.ReferencedAssemblies.Add( "System.dll" );
+			cp.ReferencedAssemblies.Add( "/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll" );
 			cp.ReferencedAssemblies.Add( Application.dataPath + "/Plugins/Spell.dll" );
+
+		}
 		else
+		{
+			cp.ReferencedAssemblies.Add( Application.dataPath + "/Data/Managed/System.dll" );
+			cp.ReferencedAssemblies.Add( Application.dataPath + "/Data/Managed/UnityEngine.dll" );
+
 			cp.ReferencedAssemblies.Add( Application.dataPath + "/Data/Managed/Spell.dll" );
+		}
 
 		// Generate an executable instead of
 		// a class library.

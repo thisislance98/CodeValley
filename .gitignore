@@ -11042,3 +11042,6 @@ test0.dll
 test1.dll
 test2.dll
 test3.dll
+Build.app/Contents/Data/Managed/UnityEngine.dll.mdb
+Build.app/Contents/Data/StreamingAssets/ffmpeg/macosx/ffmpeg.command
+Build.app/Contents/Data/StreamingAssets/ffmpeg/windows/ffmpeg.exe

@@ -65,29 +65,29 @@ public class ParseEditor : MonoBehaviour {
 	[MenuItem("Assets/Test")]
 	static void ExportResourceNoTrack () {
 
-		Debug.Log("calling request");
-		WWWForm form = new WWWForm();
-		
-		string jsonString = "{ score:100 }";
-		Hashtable headers = new Hashtable();
-		headers.Add("Content-Type", "application/json");
-		headers.Add("X-Parse-Application-Id", "XThs1FrTSI9VSTgJQ2ShMiD5MtE0iVV44psWnTW2");
-		headers.Add("X-Parse-REST-API-Key","DocYZL440ZHTom12APgvy0BpnZFIN7e9TdMP1qAn");
-		
-		form.AddField("score","23432442");
-		//	form.AddBinaryData("theFile",System.Text.Encoding.UTF8.GetBytes("some text"));
-		
-		WWW www = new WWW("https://api.parse.com/1/classes/GameScore",System.Text.Encoding.UTF8.GetBytes(jsonString),headers);
-		
-		while (www.isDone == false)
-		{
-			//do nothing
-		}
-		
-		if (www.error == null || www.error == string.Empty)
-			Debug.Log("success: " + www.text);
-		else
-			Debug.Log("fail with error: " + www.error);
+//		Debug.Log("calling request");
+//		WWWForm form = new WWWForm();
+//		
+//		string jsonString = "{ score:100 }";
+//		Hashtable headers = new Hashtable();
+//		headers.Add("Content-Type", "application/json");
+//		headers.Add("X-Parse-Application-Id", "XThs1FrTSI9VSTgJQ2ShMiD5MtE0iVV44psWnTW2");
+//		headers.Add("X-Parse-REST-API-Key","DocYZL440ZHTom12APgvy0BpnZFIN7e9TdMP1qAn");
+//		
+//		form.AddField("score","23432442");
+//		//	form.AddBinaryData("theFile",System.Text.Encoding.UTF8.GetBytes("some text"));
+//		
+//		WWW www = new WWW("https://api.parse.com/1/classes/GameScore",System.Text.Encoding.UTF8.GetBytes(jsonString),headers);
+//		
+//		while (www.isDone == false)
+//		{
+//			//do nothing
+//		}
+//		
+//		if (www.error == null || www.error == string.Empty)
+//			Debug.Log("success: " + www.text);
+//		else
+//			Debug.Log("fail with error: " + www.error);
 
 	}
 }
