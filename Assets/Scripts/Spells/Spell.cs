@@ -2,24 +2,23 @@
 using System.Collections;
 
 
-	public class Spell : MonoBehaviour {
+public class Spell : MonoBehaviour {
 
-//		float _lifeTime = 2;
-//
-//		// Use this for initialization
-//		void Awake () {
-//			
-//		}
-//
-//		IEnumerator DieAfterDelay(float delay)
-//		{
-//			yield return new WaitForSeconds(delay);
-//
-//			Debug.Log("killing spell");
-//			Destroy(this);
-//
-//		}
+	public string Name;
+	public string HitEffect;
+	public string ProjectileEffect;
+	public string Code;
+	public bool CanHitTerrain;
 
-		
+
+	public void Initialize(string name, string hitEffect, string projectileEffect, string code, bool canHitTerrain)
+	{
+		Name = name;
+		HitEffect = hitEffect;
+		ProjectileEffect = projectileEffect;
+		Code = code;
+		CanHitTerrain = canHitTerrain;
 	}
+
+}
 
