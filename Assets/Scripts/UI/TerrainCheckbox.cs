@@ -12,4 +12,8 @@ public class TerrainCheckbox : MonoBehaviour {
 	}
 	
 
+	void OnSpellLoaded(Spell spell)
+	{
+		gameObject.GetComponent<UIToggle>().value = spell.CanHitTerrain;
+	}
 }
