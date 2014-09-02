@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -20,7 +20,7 @@ public class CatController : MonoBehaviour {
 	public int LaserDamage = 5;
 	public Animation CatAnimation;
 
-	AnimalState _currentState;
+	CharacterState _currentState;
 	List<Transform> _targets = new List<Transform>();
 
 	int _team;
@@ -42,18 +42,18 @@ public class CatController : MonoBehaviour {
 
 		if (target == null)
 		{
-			SetState(AnimalState.Idle,IdleClip);
+			SetState(CharacterState.Idle,IdleClip);
 
 			FindTargets();
 			return;
 		}
 
-		if (_currentState == AnimalState.Idle)
+		if (_currentState == CharacterState.Idle)
 		{
-			SetState(AnimalState.Walk,WalkClip);
+			SetState(CharacterState.Walk,WalkClip);
 		}
 
-		if (_currentState == AnimalState.Walk)
+		if (_currentState == CharacterState.Walk)
 		{
 			
 			Quaternion targetOrientation = Quaternion.LookRotation(target.position - transform.position,Vector3.up);
@@ -89,7 +89,7 @@ public class CatController : MonoBehaviour {
 	{
 		float animTime = .5f;
 
-		SetState(AnimalState.Attacking,AttackClip,animTime,false);
+		SetState(CharacterState.Attacking,AttackClip,animTime,false);
 		audio.Play();
 
 		yield return new WaitForSeconds(animTime);
@@ -112,7 +112,7 @@ public class CatController : MonoBehaviour {
 			target.GetComponent<health>().dead = true;
 
 
-		SetState(AnimalState.Walk,WalkClip,animTime,true);
+		SetState(CharacterState.Walk,WalkClip,animTime,true);
 
 	}
 
@@ -124,12 +124,12 @@ public class CatController : MonoBehaviour {
 			return null;
 	}
 
-	void SetState(AnimalState state, AnimationClip clip)
+	void SetState(CharacterState state, AnimationClip clip)
 	{
 		SetState(state,clip,.3f,false);
 	}
 
-	void SetState(AnimalState state, AnimationClip clip, float fadeTime, bool changeStateAfterAnimComplete)
+	void SetState(CharacterState state, AnimationClip clip, float fadeTime, bool changeStateAfterAnimComplete)
 	{
 		if (_currentState != state)
 		{
@@ -143,7 +143,7 @@ public class CatController : MonoBehaviour {
 		
 	}
 
-	IEnumerator ChangeStateAfterDelay(float delay, AnimalState state)
+	IEnumerator ChangeStateAfterDelay(float delay, CharacterState state)
 	{
 		yield return new WaitForSeconds(delay);
 		_currentState = state;

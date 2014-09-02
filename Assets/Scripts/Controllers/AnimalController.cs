@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public enum AnimalState
+public enum CharacterState
 {
 	Idle=0,
 	Walk=1,
@@ -16,7 +16,7 @@ public class AnimalController : MonoBehaviour {
 	public float ChangeStateTime = 7;
 	public Transform BoundsObj;
 
-	AnimalState _currentState;
+	CharacterState _currentState;
 
 	public float RotationSpeed = .5f;
 	float[] _stateSpeeds = {0,10,20};
@@ -27,7 +27,7 @@ public class AnimalController : MonoBehaviour {
 	Bounds _bounds;
 	
 
-	public AnimalState CurrentState {
+	public CharacterState CurrentState {
 		get {return _currentState; }
 				
 		set {
@@ -36,7 +36,6 @@ public class AnimalController : MonoBehaviour {
 			_currentState = value;
 			_currentSpeed = _stateSpeeds[(int)_currentState];
 
-	//		Debug.Log("setting state: " + _currentState.ToString());
 
 			_animator.SetTrigger(_currentState.ToString());
 			
@@ -54,7 +53,7 @@ public class AnimalController : MonoBehaviour {
 		_controller = GetComponent<CharacterController>();
 		_animator = GetComponent<Animator>();
 
-		CurrentState = AnimalState.Idle;
+		CurrentState = CharacterState.Idle;
 
 		StartCoroutine(ChangeToRandomState(ChangeStateTime));
 	}
@@ -69,7 +68,7 @@ public class AnimalController : MonoBehaviour {
 
 		_targetOrientation.eulerAngles = new Vector3(transform.rotation.eulerAngles.x,_targetOrientation.eulerAngles.y,_targetOrientation.eulerAngles.z);
 
-		if (CurrentState != AnimalState.Idle)
+		if (CurrentState != CharacterState.Idle)
 			transform.rotation = Quaternion.Slerp(transform.rotation,_targetOrientation,Time.deltaTime * RotationSpeed);
 
 		_controller.Move(velocity);
@@ -118,7 +117,7 @@ public class AnimalController : MonoBehaviour {
 	{
 		yield return new WaitForSeconds(delay);
 
-		CurrentState = (AnimalState)Random.Range(0,3);
+		CurrentState = (CharacterState)Random.Range(0,3);
 
 		StartCoroutine( ChangeToRandomState(delay) );
 
