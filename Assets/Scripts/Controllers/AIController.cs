@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AIController : MonoBehaviour {
 
@@ -8,13 +9,14 @@ public class AIController : MonoBehaviour {
 	public float RotateSpeed;
 	public float AttackDistance;
 	public float ChaseDistance;
-	public float PatrolRadius;
+	public float HitWaypointDist;
 	public string[] AttackAnimations;
 	public string TargetTag = "Player";
+	public List<Transform> Waypoints;
 
 
 	Vector3 _startPos;
-	Vector3 _currentPatrolDir;
+	Transform _currentWaypoint;
 	Transform _target;
 	CharacterController _controller;
 	AIState _state;
@@ -33,7 +35,15 @@ public class AIController : MonoBehaviour {
 		_controller = GetComponent<CharacterController>();
 		OnNoTarget();
 		_startPos = transform.position;
-		SetNewPatrolDirection();
+
+		_currentWaypoint = Waypoints[0];
+
+		// hide all waypoints
+		foreach (Transform waypoint in Waypoints)
+		{
+			waypoint.renderer.enabled = false;
+			waypoint.parent = null;
+		}
 
 		// find the target
 		while (_target == null)
@@ -77,7 +87,8 @@ public class AIController : MonoBehaviour {
 		case AIState.NoTarget:
 			if (_target != null && Vector3.Distance(transform.position,_target.position) < ChaseDistance)
 				ChaseTarget();
-
+			else
+				UpdateCurrentWaypoint();
 
 			break;
 
@@ -126,11 +137,21 @@ public class AIController : MonoBehaviour {
 		animation.CrossFade("run");
 	}
 
-	void SetNewPatrolDirection()
+	void UpdateCurrentWaypoint()
 	{
-		Vector3 patrolPos = Random.insideUnitSphere * PatrolRadius;
-		_currentPatrolDir = patrolPos - transform.position;
-		_currentPatrolDir.y = 0;
+		// get positions ignoring height
+		Vector3 waypointPos = new Vector3(_currentWaypoint.position.x,0,_currentWaypoint.position.z);
+		Vector3 ourPos = new Vector3(transform.position.x,0,transform.position.z);
+
+		float dist = Vector3.Distance(ourPos,waypointPos);
+
+		if (dist < HitWaypointDist)
+		{
+			int index = Waypoints.IndexOf(_currentWaypoint);
+			index = (index+1) % Waypoints.Count;
+			_currentWaypoint = Waypoints[index];
+		}
+
 	}
 
 	Vector3 GetTargetDir()
@@ -140,7 +161,7 @@ public class AIController : MonoBehaviour {
 		switch (_state) {
 			
 		case AIState.NoTarget:
-			lookDir = _currentPatrolDir;	
+			lookDir = _currentWaypoint.position - transform.position;	
 			break;
 			
 		case AIState.ChaseTarget:

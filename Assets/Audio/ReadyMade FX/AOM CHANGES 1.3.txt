@@ -1,0 +1,50 @@
+
+CHANGES MADE FOR ACTS OF MAGIC 1.3
+
+This file documents changes made for ACTS OF MAGIC 1.3 
+
+
+GENERAL
+
+* Price increased to reflect added Sparks of the Tempest content now that it has audio.
+
+
+ACTS OF MAGIC
+
+* Complete set of audio effects added to Sparks of the Tempest and its secondary effects
+   - Sounds created by Chris Kukla (http://chriskukla.com)
+   
+* Edited or added info box effect descriptions for Sparks of the Tempest and related isolated effects
+   - primarily to credit Chris Kukla for his audio work.
+   
+* Renamed some Prefab folders to Prefab
+
+
+RMFX FRAMEWORK
+
+* Bug fixes
+   - fixed problem with EffectGroupRMFX TraverseAndCallOnContinue() method pertaining to inactive nodes. 
+   
+* Class Improvements
+   - RMFXCore: added Object Of Interest tracking
+
+
+RMFX DEMO
+
+* Character Responders
+   - Made some changes to SOTT CastingResponder and BHAR Responder for Contruction Worker and Mage Robot to support the
+     cinema camera used to better demo Sparks of the Tempest spell.
+
+
+KNOWN PROBLEMS
+
+* SelectionManager RolloverLight and Deferred Lighting
+   - The selection system highlights objects using a special Rollover directional light that only lights objects in the
+     Rollover layer. With Deferred Lighting, lights cannot exclude more than 4 layers, and this makes the current highlighting
+     solution unsuitable for Deferred Lighting unless you are using a very small number of layers. If you run the Acts of Magic
+     demo scenes with Deferred Lighting enabled, you will likely get the message:
+         "Warning: Too many layers used to exclude objects from lighting."
+     The warning as well as excess lighting in the scene can be avoided by removing the RolloverLight, but this will also
+     turn off the selection system's rollover highlighting.
+     
+

@@ -1,0 +1,11 @@
+Target: free    Duration: 0 secs
+
+Launches an isolated Lightning Impact effect.
+
+<i>Variant: <color=#0084da>Isolated</color> version.</i>
+ 
+<color=silver><size=11><i>Design and Prototype:</i>  Matthew Durante
+<i>Sounds:</i>  Chris Kukla
+<i>Unity Adaptations:</i>  Jeff Faust</size></color>
+
+<size=11>Source: <color=#ffd200>ReadyMade FX: Acts of Magic</color></size>

@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Parse;
 
-
 public class SpellManager : MonoBehaviour {
 
 	public GameObject SpellPrefab;
 
+	public bool UseLocalSpellCache;
 	public GameObject[] OnSpellLoadedObservers;
 	public GameObject OnSpellsDownloadedObserver;
 	public GameObject OnCompileObserver;
@@ -48,6 +48,46 @@ public class SpellManager : MonoBehaviour {
 		DownloadSpells();
 	}
 	
+	void DownloadSpells()
+	{
+		var query = ParseObject.GetQuery("Spell");
+
+		if (UseLocalSpellCache)
+		{
+			LoadSpells();
+			_callOnSpellsDownloaded = true;
+		}
+		else
+		{
+
+			query.FindAsync().ContinueWith(t => {
+				
+				IEnumerable<ParseObject> results = t.Result;
+
+				
+				foreach(ParseObject spellObj in results)
+				{
+					Spell spell = new Spell();
+					
+					spell.Name = spellObj.Get<string>("Name");
+					spell.HitEffect = spellObj.Get<string>("HitEffect");
+					spell.ProjectileEffect = spellObj.Get<string>("ProjectileEffect");
+					spell.Code = spellObj.Get<string>("Code");
+					spell.CanHitTerrain = spellObj.Get<bool>("CanHitTerrain");
+					
+					
+					_spells.Add(spell.Name,spell);
+				}
+
+
+				_callOnSpellsDownloaded = true;
+				
+			});
+		}
+		
+
+		
+	}
 
 	public GameObject CastSpell(Vector3 startPos, Vector3 targetPos, string targetName, string classTypeName)
 	{
@@ -133,19 +173,6 @@ public class SpellManager : MonoBehaviour {
 		Compiler.Instance.CompileSpell(code,ThirdPersonController.MyPlayer.photonView.viewID);
 
 
-//		PlayerPrefs.SetString(spellName,code);
-//		
-//		List<string> savedSpells = new List<string>(PlayerPrefsX.GetStringArray("SavedSpells"));
-//		
-//		if (savedSpells.Contains(spellName) == false)
-//		{
-//			savedSpells.Add(spellName);
-//			PlayerPrefsX.SetStringArray("SavedSpells",savedSpells.ToArray());
-//		}
-//		
-//		PlayerPrefs.SetString(spellName + "Projectile", SpellProjectilePopup.value);
-//		PlayerPrefs.SetString(spellName + "Hit", SpellHitPopup.value);
-
 		// add or update spell in our spells dictionary
 		Spell spell;
 		if (_spells.ContainsKey(spellName))
@@ -208,34 +235,36 @@ public class SpellManager : MonoBehaviour {
 		
 	}
 
-	void DownloadSpells()
+	void SaveSpells(List<string> spellNames)
 	{
-		var query = ParseObject.GetQuery("Spell");
-		
-		query.FindAsync().ContinueWith(t => {
-			
-			IEnumerable<ParseObject> results = t.Result;
+
+		Debug.Log("saving spells");
+
+		List<Spell> spells = new List<Spell>(_spells.Values);
 
 
+		foreach(string spellName in spellNames)
+		{
+			string spellString = JSONSerializer.Serialize<Spell>(_spells[spellName]);
 
-			foreach(ParseObject spellObj in results)
-			{
-				Spell spell = new Spell();
-				
-				spell.Name = spellObj.Get<string>("Name");
-				spell.HitEffect = spellObj.Get<string>("HitEffect");
-				spell.ProjectileEffect = spellObj.Get<string>("ProjectileEffect");
-				spell.Code = spellObj.Get<string>("Code");
-				spell.CanHitTerrain = spellObj.Get<bool>("CanHitTerrain");
+			PlayerPrefs.SetString(spellName,spellString);
+		}
 
 
-				_spells.Add(spell.Name,spell);
-			}
+		PlayerPrefsX.SetStringArray("SpellNames",spellNames.ToArray());
+	}
 
-			
-			_callOnSpellsDownloaded = true;
-		
-		});
+	void LoadSpells()
+	{
+		string[] spellNames = PlayerPrefsX.GetStringArray("SpellNames");
+
+		foreach(string spellName in spellNames)
+		{
+			Debug.Log("loading spell: " + spellName);
+			Spell spell = JSONSerializer.Deserialize<Spell>(PlayerPrefs.GetString(spellName));
+			_spells.Add(spell.Name,spell);
+
+		}
 	}
 
 	void Update()
@@ -244,10 +273,13 @@ public class SpellManager : MonoBehaviour {
 		// we need to do this dumb workaround because you can only call SendMessage from the main thread
 		if (_callOnSpellsDownloaded) 
 		{
+
+
 			List<string> spellNames = new List<string>();
 			foreach(Spell spell in _spells.Values)
 				spellNames.Add(spell.Name);
 
+			SaveSpells(spellNames);
 			Debug.Log("observer: " + OnSpellsDownloadedObserver.name);
 			OnSpellsDownloadedObserver.GetComponent<SavedSpellsPopup>().OnSpellNamesDownloaded(spellNames);// .SendMessage("OnSpellNamesDownloaded",spellNames);
 			_callOnSpellsDownloaded = false;
